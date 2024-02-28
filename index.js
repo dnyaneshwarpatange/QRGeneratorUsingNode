@@ -13,7 +13,8 @@ inquirer
     const url = answers.URL;
     var qr_svg = qr.image(url);
     qr_svg.pipe(fs.createWriteStream('GeneratedQR.png'));
-    writeFile('SavedURL.txt', url, (err) => {
+
+    fs.writeFile("SavedURL.txt", url, (err) => {
         if (err) throw err;
         console.log('The URL has been saved in file SavedURL.txt');
       }); 
